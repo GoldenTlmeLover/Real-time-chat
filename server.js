@@ -33,6 +33,7 @@ io.on('connection', () =>{
 
 // server start
 var server = http.listen(process.env.PORT, () => {
+    console.log(process.env.DBURL);
     console.log('server is running on port', process.env.PORT);
 })
 
