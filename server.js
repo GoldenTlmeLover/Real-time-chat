@@ -1,3 +1,7 @@
+// enviroment variables
+require("dotenv").config();
+
+// modules require
 var express = require('express');
 var app = express();
 
@@ -15,10 +19,9 @@ app.use(express.static(__dirname))
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
-// connect to DB
-var dbUrl = 'mongodb+srv://ezops_db:rAkoIe5CVmmOtKzj@ezopschatdb.z0zzzxg.mongodb.net/ezopsChatDB';
 
-mongoose.connect(dbUrl, (err) => {
+// connect to db
+mongoose.connect(process.env.DBURL, (err) => {
     console.log('mongodb connect', err);
 })
 
@@ -29,8 +32,8 @@ io.on('connection', () =>{
    })
 
 // server start
-var server = http.listen(8080, () => {
-    console.log('server is running on port', server.address().port);
+var server = http.listen(process.env.PORT, () => {
+    console.log('server is running on port', process.env.PORT);
 })
 
 app.get('/', (req, res) => {
