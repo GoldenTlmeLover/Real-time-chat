@@ -1,6 +1,14 @@
 // enviroment variables
 require("dotenv").config();
 
+const enviroment = {
+    host : process.env.HOST,
+    port : process.env.PORT,
+    dbUrl : process.env.DBURL,
+};
+
+
+
 // modules require
 var express = require('express');
 var app = express();
@@ -21,7 +29,8 @@ app.use(bodyParser.urlencoded({extended: false}));
 
 
 // connect to db
-mongoose.connect(process.env.DBURL, (err) => {
+console.log(enviroment.dbUrl);
+mongoose.connect(enviroment.dbUrl, (err) => {
     console.log('mongodb connect', err);
 })
 
@@ -32,8 +41,8 @@ io.on('connection', () =>{
    })
 
 // server start
-var server = http.listen(process.env.PORT, () => {
-    console.log('server is running on port', process.env.PORT);
+var server = http.listen(enviroment.port, () => {
+    console.log('server is running on port', enviroment.port);
 })
 
 app.get('/', (req, res) => {
