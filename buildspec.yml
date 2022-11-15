@@ -1,8 +1,10 @@
-version: "3"
+version: "0.2"
 
-services:
-  app:
-    build: .
-    ports:
-      - "8080:8080"
-    command: npm run start
+phases:
+  install:
+    commands:
+      - npm install
+    build:
+      - npm run start
+artifacts:
+  files: '**/*'
