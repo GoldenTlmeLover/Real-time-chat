@@ -13,7 +13,7 @@ phases:
       - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 615056425923.dkr.ecr.sa-east-1.amazonaws.com
       - REPOSITORY_URI=615056425923.dkr.ecr.sa-east-1.amazonaws.com/ezops-test-ecr
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - IMAGE_TAG=${COMMIT_HASH:=latest}
+      - IMAGE_TAG=${COMMIT_HASH:latest}
 
   build:
     commands:
@@ -29,7 +29,7 @@ phases:
       - docker push $REPOSITORY_URI:latest
       # - docker push $REPOSITORY_URI:$IMAGE_TAG
       - echo Writing image definitions file...
-      - printf '[{"name":"ezops-test","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - printf '[{"name":"ezops-test-ecr","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
 
 artifacts:
     files: imagedefinitions.json
