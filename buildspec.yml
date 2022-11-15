@@ -32,4 +32,6 @@ phases:
       - printf '[{"name":"ezops-test-ecr","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
 
 artifacts:
-    files: imagedefinitions.json
+    files:
+    - appspec.yml 
+    - imagedefinitions.json
