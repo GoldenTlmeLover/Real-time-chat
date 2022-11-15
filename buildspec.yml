@@ -8,7 +8,6 @@ phases:
 
   pre_build:
     commands:
-      - server_clear.sh
       - echo Logging in to Amazon ECR...
       - aws --version
       - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 615056425923.dkr.ecr.sa-east-1.amazonaws.com
