@@ -2,12 +2,10 @@
 require("dotenv").config();
 
 const enviroment = {
-    host : process.env.HOST,
-    port : process.env.PORT,
-    dbUrl : process.env.DBURL,
-};
-
-
+    host : '15.229.71.241',
+    port : '8080',
+    dbUrl : 'mongodb+srv://ezops_db:rAkoIe5CVmmOtKzj@ezopschatdb.z0zzzxg.mongodb.net/ezopsChatDB',
+}
 
 // modules require
 var express = require('express');
