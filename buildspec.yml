@@ -1,13 +1,13 @@
-version: "0.2"
+# version: "0.2"
 
-phases:
-  install:
-    commands:
-      - npm install
-    build:
-      - npm run start
-artifacts:
-  files: '**/*'\
+# phases:
+#   install:
+#     commands:
+#       - npm install
+#     build:
+#       - npm run start
+# artifacts:
+#   files: '**/*'\
 
 
 version: 0.2
