@@ -10,20 +10,22 @@ phases:
       - REPOSITORY_URI=615056425923.dkr.ecr.sa-east-1.amazonaws.com/ezops-test-ecr
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
+
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
-      - docker build -t ezops-test-ecr .
+      - docker build -t ezops-test-ecr:latest .
       - docker tag ezops-test-ecr:latest 615056425923.dkr.ecr.sa-east-1.amazonaws.com/ezops-test-ecr:latest
+
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker images...
       - docker push 615056425923.dkr.ecr.sa-east-1.amazonaws.com/ezops-test-ecr:latest
       - echo Writing image definitions file...
-      - printf '[{"name":"devops","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
+      - printf '[{"name":"ezops-test","imageUri":"%s"}]' $REPOSITORY_URI:latest > imagedefinitions.json
       - cat imagedefinitions.json 
+
 artifacts:
-    files: 
-      - imagedefinitions.json
+    files: imagedefinitions.json
