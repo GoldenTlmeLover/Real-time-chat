@@ -15,10 +15,10 @@ var cors = require('cors')
 var http = require('http').Server(app);
 var io = require('socket.io')(http, {
     cors: {
-        origin: `http://${enviroment.host}`,
+        origin: `*`,
         methods: ["GET", "POST"],
         transports: ['websocket', 'polling'],
-        credentials: true
+        credentials: false
     },
     allowEIO3: true
 });
