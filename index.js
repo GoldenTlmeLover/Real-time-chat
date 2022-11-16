@@ -5,7 +5,7 @@
 // }
 
 const  HOST = "15.229.71.241"
-const PORT = "80"
+const PORT = "8080"
 
 function addMessages(message){
   var div = document.createElement('div');
