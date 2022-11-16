@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 const enviroment = {
-    host : '15.229.71.241',
+    host : 'load-1550327946.sa-east-1.elb.amazonaws.com',
     port : '8080',
     dbUrl : 'mongodb+srv://ezops_db:lH0RxyM7rA9U37dD@ezopschatdb.qqh0jxx.mongodb.net/messages',
 }
@@ -10,7 +10,6 @@ const enviroment = {
 // modules require
 let express = require('express');
 let app = express();
-// let cors = require('cors')
 
 let http = require('http').Server(app);
 
@@ -18,24 +17,10 @@ let io = require('socket.io')(http);
 io.on('connection', (socket) => {
     console.log('a user is connected');
 })
-//      {
-//     cors: {
-//         origin: `*`,
-//         methods: ["GET", "POST"],
-//         transports: ['websocket', 'polling'],
-//         credentials: false
-//     },
-//     allowEIO3: true
-// });
 
 
 let bodyParser = require('body-parser');
-
 let mongoose = require('mongoose');
-
-
-
-// app.use(cors());
 
 app.use(express.static(__dirname))
 
