@@ -8,8 +8,11 @@ permissions:
     owner: ec2-user
     group: ec2-user
 hooks:
-  - BeforeInstall: scripts/installnode.sh
+  BeforeInstall: 
+    - location: scripts/installnode.sh
     runas: root
   # AfterInstall: scripts/
-  ApplicationStart: script/npmstart.sh
+  ApplicationStart:
+    -location: script/npmstart.sh
+    runas: root
   # ValidateService:
