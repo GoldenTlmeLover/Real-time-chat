@@ -1,40 +1,69 @@
-// function addMessages(message){
-// $("#messages").append(`x
-//   <h4> ${message.name} </h4>
-//   <p>  ${message.message} </p>`)
-// }
+const HOST = "load-1550327946.sa-east-1.elb.amazonaws.com";
+const PORT = "80";
 
-const  HOST = "15.229.71.241"
-const PORT = "8080"
+function addMessages(message) {
+  let inputName = document.getElementById("name").value;
 
-function addMessages(message){
-  var div = document.createElement('div');
-  var h4 = document.createElement('h4');
-  var p = document.createElement('p');
+  let div = document.createElement("div");
+  let h4 = document.createElement("h4");
+  let p = document.createElement("p");
+  let span = document.createElement("span");
 
+  // DIFERENT COLOR FOR SENDER
+  if (message.name == inputName) {
+    div.classList.add(
+      "bg-blue-600",
+      "my-2",
+      "h-auto",
+      "w-auto",
+      "p-2",
+      "rounded-2xl"
+    );
+    h4.classList.add("m-1", "text-red-800");
+  } else {
+    div.classList.add(
+      "bg-gray-600",
+      "my-2",
+      "h-auto",
+      "w-auto",
+      "p-2",
+      "rounded-2xl"
+    );
+    h4.classList.add("m-1", "text-red-800");
+  }
 
-  div.classList.add('bg-gray-600', 'my-2', 'h-auto', 'w-auto', 'p-2', 'rounded-2xl');
-  h4.classList.add('m-1', 'text-red-800');
-  p.classList.add('m-1', 'text-slate-200');
+  p.classList.add("m-1", "text-slate-200");
+  span.classList.add("text-end", "justify-end", "ml-auto", "mr-0", "m-1");
 
-  h4.innerHTML = message.name
-  p.innerHTML = message.message
+  h4.innerHTML = message.name;
+  p.innerHTML = message.message;
+  span.innerHTML = message.time;
 
-  div.appendChild(h4)
-  div.appendChild(p)
+  div.appendChild(h4);
+  div.appendChild(p);
+  div.appendChild(span);
 
-  document.getElementById('messages').appendChild(div);
+  document.getElementById("messages").appendChild(div);
+  getBottom();
 }
 
-function getMessages(){
-$.get(`http://${HOST}:${PORT}/messages`, (data) => {
-data.forEach(addMessages);
-})
+function getMessages() {
+  $.get(`http://${HOST}:${PORT}/messages`, (data) => {
+    clearMessages();
+    data.forEach(addMessages);
+
+    getBottom();
+  });
 }
-function sendMessage(message){
-$.post(`http://${HOST}:${PORT}/messages`, message)
+function sendMessage(message) {
+  $.post(`http://${HOST}:${PORT}/messages`, message);
+  getBottom();
 }
 
-function clearMessages(){
-$('#messages').html("");
+function clearMessages() {
+  $("#messages").html("");
+}
+
+function getBottom() {
+  $("#scroll").scrollTop($("#scroll")[0].scrollHeight);
 }
