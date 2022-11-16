@@ -13,6 +13,6 @@ hooks:
     runas: root
   # AfterInstall: scripts/
   ApplicationStart:
-    -location: script/npmstart.sh
+    - location: script/npmstart.sh
     runas: root
   # ValidateService:
