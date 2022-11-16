@@ -10,17 +10,17 @@ phases:
     commands:
       - echo Logging in to Amazon ECR...
       - aws --version
-      - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin 615056425923.dkr.ecr.sa-east-1.amazonaws.com
-      - REPOSITORY_URI='615056425923.dkr.ecr.sa-east-1.amazonaws.com/ezops-test-ecr'
+      - aws ecr get-login-password --region sa-east-1 | docker login --username AWS --password-stdin public.ecr.aws/u2j3d1n3/ezops-test-ecr
+      - REPOSITORY_URI=public.ecr.aws/u2j3d1n3/ezops-test-ecr
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
-      - IMAGE_TAG=${COMMIT_HASH:latest}
+      - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
 
   build:
     commands:
       - echo Build started on `date`
       - echo Building the Docker image...
       - docker build -t $REPOSITORY_URI:latest .
-      # - docker tag $REPOSITORY_URI:$IMAGE_TAG
+      - docker tag $REPOSITORY_URI:latest $REPOSITORY_URI:latest
 
   post_build:
     commands:
