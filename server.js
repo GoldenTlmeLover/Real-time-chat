@@ -1,36 +1,41 @@
-// enviroment variables
+// enviroment letiables
 require("dotenv").config();
 
 const enviroment = {
-    host : 'load-1550327946.sa-east-1.elb.amazonaws.com',
+    host : 'localhost',
     port : '8080',
-    dbUrl : 'mongodb+srv://ezops_db:lH0RxyM7rA9U37dD@ezopschatdb.qqh0jxx.mongodb.net/test',
+    dbUrl : 'mongodb+srv://ezops_db:lH0RxyM7rA9U37dD@ezopschatdb.qqh0jxx.mongodb.net/messages',
 }
 
 // modules require
-var express = require('express');
-var app = express();
-var cors = require('cors')
+let express = require('express');
+let app = express();
+// let cors = require('cors')
 
-var http = require('http').Server(app);
-var io = require('socket.io')(http, {
-    cors: {
-        origin: `*`,
-        methods: ["GET", "POST"],
-        transports: ['websocket', 'polling'],
-        credentials: false
-    },
-    allowEIO3: true
-});
+let http = require('http').Server(app);
+
+let io = require('socket.io')(http);
+io.on('connection', (socket) => {
+    console.log('a user is connected');
+})
+//      {
+//     cors: {
+//         origin: `*`,
+//         methods: ["GET", "POST"],
+//         transports: ['websocket', 'polling'],
+//         credentials: false
+//     },
+//     allowEIO3: true
+// });
 
 
-var bodyParser = require('body-parser');
+let bodyParser = require('body-parser');
 
-var mongoose = require('mongoose');
+let mongoose = require('mongoose');
 
 
 
-app.use(cors());
+// app.use(cors());
 
 app.use(express.static(__dirname))
 
@@ -45,14 +50,12 @@ mongoose.connect(enviroment.dbUrl, (err) => {
     console.log('mongodb connect', err);
 })
 
-var Message = mongoose.model('Message', { name: String, message: String})
+let Message = mongoose.model('Message', { name: String, message: String, time: String})
 
-io.on('connection', () =>{
-    console.log('a user is connected')
-   })
+
 
 // server start
-var server = http.listen(enviroment.port, () => {
+let server = http.listen(enviroment.port, () => {
     console.log('server is running on port', enviroment.port);
 })
 
@@ -68,7 +71,7 @@ app.get('/messages', (req, res) => {
 })
 
 app.post('/messages', (req, res) => {
-    var message = new Message(req.body);
+    let message = new Message(req.body);
     message.save((err) =>{
         if(err)
             sendStatus(500);

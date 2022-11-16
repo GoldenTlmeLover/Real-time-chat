@@ -11,71 +11,12 @@
     
     <script src="/socket.io/socket.io.js"></script>
 
-    <!-- <link rel="stylesheet" href="./src/styles/style.css"> -->
     <link rel="stylesheet" href="./dist/output.css">
 </head>
 <body style="background-image: url(./src/imgs/background.jpg)" class="scroll-smooth" ></div>
-    <!-- <div class="flex"> -->
-        <!-- <br>
-        <div>
-            <h1 class='text-3xl' >Send Message</h1>
-            <br>
-            <input id = "name" placeholder="Name">
-            <br>
-            <textarea id = "message" placeholder="Your Message Here" class='bg-red-600'>
-            </textarea>
-            <br>
-            <button id="send">Send</button>
-        </div>
-        <div id="messages">
-        </div> -->
-        <div class="overflow-auto h-[85vh]">
+
+        <div id="scroll" class="overflow-auto h-[85vh]">
             <div id="messages" class="inset-x-0 mx-16 mt-5 ">
-                <!-- <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span class="text-end justify-end ml-auto mr-0">12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200 ml-0">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div>
-                <div class="bg-gray-600 my-2 h-auto w-auto p-2 rounded-2xl">
-                    <h4 class = "m-1 text-red-800">WILL</h4>
-                    <p class="m-1 text-slate-200">Lorem ipsum dolor sit amet consectetur adipisicing elit. Sit labore culpa cumque quis eius, harum mollitia officia consequatur enim assumenda, illum, adipisci sed corrupti voluptatibus. Eaque cum quisquam commodi quo. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quos earum eligendi sequi pariatur sit laudantium totam repellat inventore quod quibusdam, veniam eveniet suscipit? Dolorem ad blanditiis quia nam veniam exercitationem.</p>
-                    <span>12:50</span>
-                </div> -->
                 
             </div>
         </div>
@@ -86,29 +27,36 @@
                 <div class="col-start-12 col-end-12 bg-blue-600 rounded-3xl hover:border-4 flex">
                     <input type="image" id="send" src="src/imgs/send.png" class="h-10 m-auto lg:h-full p-0 " />
                 </div>
-                
-            <!-- </div> -->
-            <!-- <div class=""> -->
-                <!-- <input type="image" id="send" src="/src/styles/imgs/send.png" class=" h-16 pr-4 pl-5 mr-5 bg-blue-900"/> -->
-            <!-- </div> -->
-                
+
         </footer>
     <!-- </div>   -->
 <script src="./index.js">
 </script>
 <script>
+
     $(() => {
     var socket = io();
     socket.on('message', addMessages);
-    
+
     $("#send").click(async()=>{
+
         clearMessages();
+        let current = getTime();
+
         await sendMessage({
             name: $("#name").val(), 
             message:$("#message").val(),
-            time:$("12:00")})
-            getMessages();
+            time:current});
+        await getMessages();
+        getBottom()
     })
+
+
+    function getTime(){
+        var now = new Date();
+        var current = now.getHours() + ':' + now.getMinutes();
+        return current;
+    }
 })
     </script>
 </body>
