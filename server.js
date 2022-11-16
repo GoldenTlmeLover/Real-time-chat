@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 const enviroment = {
-    host : '15.229.71.241',
+    host : 'load-1550327946.sa-east-1.elb.amazonaws.com',
     port : '8080',
     dbUrl : 'mongodb+srv://ezops_db:rAkoIe5CVmmOtKzj@ezopschatdb.z0zzzxg.mongodb.net/ezopsChatDB',
 }
@@ -18,6 +18,9 @@ var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
+var cors = require('cors')
+
+app.use(cors);
 
 app.use(express.static(__dirname))
 
