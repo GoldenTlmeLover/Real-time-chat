@@ -1,5 +1,5 @@
-const  HOST = "15.229.71.241"
-const PORT = "8080"
+const  HOST = "load-1550327946.sa-east-1.elb.amazonaws.com"
+const PORT = "80"
 
 function addMessages(message){
   var inputName = document.getElementById('name').value

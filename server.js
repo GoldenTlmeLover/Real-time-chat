@@ -2,7 +2,7 @@
 require("dotenv").config();
 
 const enviroment = {
-    host : '15.229.71.241',
+    host : 'load-1550327946.sa-east-1.elb.amazonaws.com',
     port : '8080',
     dbUrl : 'mongodb+srv://ezops_db:lH0RxyM7rA9U37dD@ezopschatdb.qqh0jxx.mongodb.net/messages',
 }
