@@ -10,15 +10,25 @@ const enviroment = {
 // modules require
 var express = require('express');
 var app = express();
+var cors = require('cors')
 
 var http = require('http').Server(app);
-var io = require('socket.io')(http);
+var io = require('socket.io')(http, {
+    cors: {
+        origin: `http://${enviroment.host}`,
+        methods: ["GET", "POST"],
+        transports: ['websocket', 'polling'],
+        credentials: true
+    },
+    allowEIO3: true
+});
+
 
 var bodyParser = require('body-parser');
 
 var mongoose = require('mongoose');
 
-var cors = require('cors')
+
 
 app.use(cors());
 
