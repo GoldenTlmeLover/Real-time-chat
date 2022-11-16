@@ -5,7 +5,7 @@
 // }
 
 const  HOST = "load-1550327946.sa-east-1.elb.amazonaws.com"
-const PORT = "8080"
+const PORT = "80"
 
 function addMessages(message){
   var div = document.createElement('div');
