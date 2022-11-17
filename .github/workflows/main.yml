@@ -1,7 +1,6 @@
 name: CI/CD
 on: 
-  push:
-    branches: [production]
+  push
 
 jobs:
   build-and-deploy:
