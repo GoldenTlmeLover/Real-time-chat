@@ -1,6 +1,6 @@
 name: CI/CD
 on: push
-
+runs-on: self-hosted
 jobs:
   build-and-deploy:
     runs-on: self-hosted
