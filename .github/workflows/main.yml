@@ -1,10 +1,11 @@
 name: CI/CD
 on: push
 runs-on: self-hosted
+
 jobs:
   build-and-deploy:
     runs-on: self-hosted
-      image: composer:latest
+      # image: composer:latest
       
       steps:
         - uses: actions/checkout@v3
