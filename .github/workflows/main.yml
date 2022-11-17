@@ -5,7 +5,7 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: docker run -p 8080:8080 -d
+    runs-on: self-hosted
       image: composer:latest
       
       steps:
