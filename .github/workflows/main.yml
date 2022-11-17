@@ -1,6 +1,6 @@
 name: CI/CD
 on: 
-  push
+  push:
 
 jobs:
   build-and-deploy:
