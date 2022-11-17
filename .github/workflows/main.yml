@@ -5,12 +5,14 @@ on:
 
 jobs:
   build-and-deploy:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+      image: composer:latest
+      
       steps:
         - uses: actions/checkout@v3
         - name: Build the docker image
-          run: docker build . --file Dockerfile -tag teste
-        - name: Docker Start'
+          run: docker build . --file Dockerfile -tag teste:teste
+        - name: Docker run docker run -p 8080:8080 -d
         - run: 
 
 # jobs:
