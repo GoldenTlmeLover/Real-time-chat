@@ -13,8 +13,8 @@ jobs:
       # - name: Pull git project
       #   run: git clone https://github.com/GoldenTlmeLover/ezops-test-willians.git
 
-      - name: Stop all docker containers
-        run: docker stop $(docker ps -a -q)
+      # - name: Stop all docker containers
+      #   run: docker stop $(docker ps -a -q)
 
       - name: Build docker image
         run: docker build . --file Dockerfile --tag teste2:teste2
