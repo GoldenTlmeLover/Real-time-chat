@@ -1,16 +1,17 @@
 name: Docker Image CI
 
-on: [push]
+on: 
+  push:
+    branches: [main]
 
 jobs:
-  build:
 
+  build-container:
     runs-on: ubuntu-latest
 
       steps:
-      - uses: actions/checkout@v1
 
-      - name: Docker
-      - run: |
-          docker build . --file Docker file --tag teste2:teste2
-          docker run -p 8080:8080 -d 
+      - uses: actions/checkout@v3
+
+      - name: Build the docker image
+      - run: docker build . --file Dockerfile --tag teste2:teste2
