@@ -25,14 +25,16 @@ jobs:
   build-container:
     runs-on: windows-latest
     steps:
-      - name: Pull git project
-        run: git pull
+      - name: create file
+        run: touch index.txt
+      # - name: Pull git project
+      #   run: git pull
 
-      - name: Stop all docker containers
-        run: docker stop $(docker ps -a -q)
+      # - name: Stop all docker containers
+      #   run: docker stop $(docker ps -a -q)
 
-      - name: Build docker image
-        run: docker build . --file Dockerfile --tag teste2:teste2
+      # - name: Build docker image
+      #   run: docker build . --file Dockerfile --tag teste2:teste2
 
-      - name: Run docker image
-        run: docker run -d -p 8080:8080 teste2:teste2
+      # - name: Run docker image
+      #   run: docker run -d -p 8080:8080 teste2:teste2
