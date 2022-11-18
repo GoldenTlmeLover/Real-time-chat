@@ -23,7 +23,7 @@ jobs:
 #         run: docker run -d -p 8080:8080 teste2:teste2
 
   build-container:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Pull git project
         run: git pull
