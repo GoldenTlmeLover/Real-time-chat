@@ -17,12 +17,18 @@ jobs:
       #   run: docker stop $(docker ps -a -q)
       - name: Check out code
         uses: actions/checkout@v2
+
+      - name: Docker logout
+        run: docker logout
+
+      - name: Docker login
+        run: docker login -u willians9620 -p @W1ll14ns9620
         
       - name: Build docker image
-        run: docker build . --file Dockerfile --tag teste2:teste2
+        run: docker build . --file Dockerfile --tag willians9620/teste4:teste4
 
       - name: Run docker image
-        run: docker run -d -p 8080:8080 teste2:teste2
+        run: docker push willians9620/teste4:teste4
 
   # build-container:
   #   runs-on: ubuntu-latest
