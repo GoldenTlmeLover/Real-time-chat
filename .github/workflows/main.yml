@@ -23,7 +23,7 @@ jobs:
 #         run: docker run -d -p 8080:8080 teste2:teste2
 
   build-container:
-    # runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       - name: Build and push Docker images
         uses: docker/build-push-action@v3.2.0
