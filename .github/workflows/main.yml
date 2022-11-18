@@ -15,11 +15,9 @@ jobs:
 
       # - name: Stop all docker containers
       #   run: docker stop $(docker ps -a -q)
-      -name: teste
-        run: cd ..
 
       - name: Build docker image
-        run: docker build . --file Dockerfile --tag teste2:teste2
+        run: docker build . --tag teste2:teste2
 
       - name: Run docker image
         run: docker run -d -p 8080:8080 teste2:teste2
