@@ -26,7 +26,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - name: create file
-        run: docker stop $(docker ps -a -q)
+        run: docker stop 23f33d11683b
       # - name: Pull git project
       #   run: git pull
 
