@@ -15,7 +15,9 @@ jobs:
 
       # - name: Stop all docker containers
       #   run: docker stop $(docker ps -a -q)
-
+      - name: Check out code
+        uses: actions/checkout@v2
+        
       - name: Build docker image
         run: docker build . --tag teste2:teste2
 
