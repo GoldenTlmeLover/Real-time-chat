@@ -9,5 +9,7 @@ jobs:
   build-container:
     runs-on: self-hosted
     steps:
+      - name: pull project
+        run: git pull
       - name: Build the docker image
         run: docker build . --file Dockerfile --tag teste2:teste2
