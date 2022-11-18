@@ -33,7 +33,7 @@ jobs:
   run-container-EC2:
     needs: build-container
     runs-on: self-hosted
-    
+
     steps:
       - name: Stop all docker containers
         run: docker stop $(docker ps -a -q)
@@ -48,7 +48,7 @@ jobs:
         run: docker pull willians9620/teste4:teste4
 
       - name: Docker Run
-        run: docker run -d -p 8080:8080 willians/teste4:teste4
+        run: docker run -d -p 8080:8080 willians9620/teste4:teste4
 
   # build-container:
   #   runs-on: ubuntu-latest
