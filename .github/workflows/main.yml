@@ -23,12 +23,30 @@ jobs:
 
       - name: Docker login
         run: docker login -u willians9620 -p @W1ll14ns9620
-        
+
       - name: Build docker image
         run: docker build . --file Dockerfile --tag willians9620/teste4:teste4
 
-      - name: Run docker image
+      - name: Push docker image
         run: docker push willians9620/teste4:teste4
+
+  run-container-EC2:
+    runs-on: self-hosted
+    steps:
+      - name: Stop all docker containers
+        run: docker stop $(docker ps -a -q)
+
+      - name: Docker logout
+        run: docker logout
+
+      - name: Docker login
+        run: docker login -u willians9620 -p @W1ll14ns9620
+
+      - name: Docker pull
+        run: docker pull willians9620/teste4:teste4
+
+      - name: Docker Run
+        run: docker run -d -p 8080:8080 willians/teste4:teste4
 
   # build-container:
   #   runs-on: ubuntu-latest
