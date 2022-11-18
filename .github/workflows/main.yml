@@ -8,10 +8,8 @@ jobs:
 
   build-container:
     runs-on: ubuntu-latest
-
-      steps:
+    steps:
 
       - uses: actions/checkout@v3
-
       - name: Build the docker image
       - run: docker build . --file Dockerfile --tag teste2:teste2
