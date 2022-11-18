@@ -10,4 +10,4 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Build the docker image
-        run: echo teste
+        run: echo teste1
