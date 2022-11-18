@@ -9,7 +9,5 @@ jobs:
   build-container:
     runs-on: self-hosted
     steps:
-
-      - uses: actions/checkout@v3
       - name: Build the docker image
-      - run: echo teste
+        run: echo teste
