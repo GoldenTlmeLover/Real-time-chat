@@ -6,7 +6,7 @@ on:
 
 jobs:
 
-# USING GIT PULL
+# USING GIT PULL.
   build-container:
     runs-on: ubuntu-latest
     steps:
