@@ -34,7 +34,7 @@ jobs:
         run: docker push ${{ secrets.DOCKER_HUB_LOGIN }}/${{ github.event.head_commit.message }}:${{ github.run_number }}
 
   run-container-EC2:
-    needs: build-container
+    needs: test-message_build-container
     runs-on: self-hosted
 
     steps:
