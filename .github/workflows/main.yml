@@ -7,7 +7,7 @@ on:
 jobs:
 
 # USING GIT PULL
-  build-container:
+  test-and-build-container:
     runs-on: ubuntu-latest
     steps:
       # - name: Pull git project
@@ -17,6 +17,9 @@ jobs:
       #   run: docker stop $(docker ps -a -q)
       - name: Check out code
         uses: actions/checkout@v3
+
+      - name: Post message test
+      - uses: npm run test
 
       - name: Docker logout
         run: docker logout

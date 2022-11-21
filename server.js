@@ -1,6 +1,3 @@
-// enviroment letiables
-require("dotenv").config();
-
 const enviroment = {
     host : '15.229.71.241',
     port : '8080',
