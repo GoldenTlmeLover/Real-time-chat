@@ -22,10 +22,10 @@ jobs:
         run: docker logout
 
       - name: Docker login
-        run: docker login -u willians9620 -p @W1ll14ns9620
+        run: docker login -u ${{ secrets.DOCKER_HUB_LOGIN}} -p ${{ secrets.DOCKER_HUB_PASSWORD}}
 
       - name: Build docker image
-        run: docker build . --file Dockerfile
+        run: docker build . --file Dockerfile --tag willians9620/${{ github.event.head_commit.message }}:${{ github.run_number }}
 
       - name: Push docker image
         run: docker push willians9620/${{ github.event.head_commit.message }}:${{ github.run_number }}
