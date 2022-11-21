@@ -38,6 +38,8 @@
     var socket = io();
     socket.on('message', addMessages);
 
+    getMessages();
+    
     $("#send").click(async()=>{
 
         clearMessages();
