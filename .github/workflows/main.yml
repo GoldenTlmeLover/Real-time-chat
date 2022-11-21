@@ -10,7 +10,7 @@ jobs:
   test-message_build-container:
     runs-on: ubuntu-latest
     steps:
-      # - name: Pull git project
+      # - name: Pull git project.
       #   run: git clone https://github.com/GoldenTlmeLover/ezops-test-willians.git
 
       # - name: Stop all docker containers
