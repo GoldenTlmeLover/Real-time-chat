@@ -8,7 +8,7 @@ jobs:
 
 # USING GIT PULL
   build-container:
-    runs-on: windows-latest
+    runs-on: ubuntu-latest
     steps:
       # - name: Pull git project
       #   run: git clone https://github.com/GoldenTlmeLover/ezops-test-willians.git
