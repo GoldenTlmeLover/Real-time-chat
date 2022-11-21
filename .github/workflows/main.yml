@@ -19,7 +19,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Post message test
-      - uses: npm run test
+      - run: npm run test
 
       - name: Docker logout
         run: docker logout
