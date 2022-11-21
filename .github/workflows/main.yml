@@ -7,7 +7,7 @@ on:
 jobs:
 
 # USING GIT PULL.
-  test-message/build-container:
+  test-message_build-container:
     runs-on: ubuntu-latest
     steps:
       # - name: Pull git project
