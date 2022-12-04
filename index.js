@@ -1,4 +1,4 @@
-const HOST = "15.229.71.241";
+const HOST = "localhost";
 const PORT = "8080";
 
 function addMessages(message) {
@@ -19,7 +19,7 @@ function addMessages(message) {
       "p-2",
       "rounded-2xl"
     );
-    h4.classList.add("m-1", "text-red-800");
+    h4.classList.add("m-1", "text-red-800", "font-bold");
   } else {
     div.classList.add(
       "bg-gray-600",
@@ -29,7 +29,7 @@ function addMessages(message) {
       "p-2",
       "rounded-2xl"
     );
-    h4.classList.add("m-1", "text-red-800");
+    h4.classList.add("m-1", "text-red-800", "font-bold");
   }
 
   p.classList.add("m-1", "text-slate-200");
