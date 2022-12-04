@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 const enviroment = {
-    host : 'localhost',
-    port : '8080',
-    dbUrl : 'mongodb+srv://ezops_db:lH0RxyM7rA9U37dD@ezopschatdb.qqh0jxx.mongodb.net/message2',
+    host : process.env.HOST,
+    port : process.env.PORT,
+    dbUrl : process.env.DBURL,
 }
 
 // modules require

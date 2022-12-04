@@ -1,7 +1,7 @@
 const HOST = "localhost";
 const PORT = "8080";
 
-function addMessages(message) {
+function addMessage(message) {
   let inputName = document.getElementById("name").value;
 
   let div = document.createElement("div");
@@ -50,7 +50,7 @@ function addMessages(message) {
 function getMessages() {
   $.get(`http://${HOST}:${PORT}/messages`, (data) => {
     clearMessages();
-    data.forEach(addMessages);
+    data.forEach(addMessage);
 
     getBottom();
   });
