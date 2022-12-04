@@ -19,7 +19,7 @@ function addMessage(message) {
       "p-2",
       "rounded-2xl"
     );
-    h4.classList.add("m-1", "text-red-800", "font-bold");
+    h4.classList.add("m-1", "font-bold");
   } else {
     div.classList.add(
       "bg-gray-600",
